@@ -1,0 +1,108 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#game-display-div {
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 70vw;
+    height: 60vh;
+    margin: 50px 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr 3fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.current-date {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    font-size: x-large;
+    justify-self: center;
+    align-self: flex-end;
+}
+
+.timer {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    font-size: xxx-large;
+    justify-self: center;
+    align-self: flex-start;
+
+}
+
+.team-one {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+}
+
+.team-two {
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+}
+
+.result {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    font-size: 100px;
+}
+
+.controls {
+    grid-area: 4 / 5;
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+.controls button {
+    width: 40px;
+    height: 40px;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.controls #main-controls-div {
+    display: flex;
+}
+
+.team-one,
+.team-two,
+.result,
+.controls {
+    justify-self: center;
+    align-self: center;
+}
+
+.team-one,
+.team-two {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-one p,
+.team-two p {
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 0;
+}
+
+.team-one img,
+.team-two img {
+    width: 200px;
+    height: 200px;
+    margin: auto 0;
+}
+
+.controls .reset-button {
+    font-size: 30px;
+}

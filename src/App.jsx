@@ -1,35 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import GameDisplay from './components/GameDisplay'
 
+// I wanted to give the user a possibility for tracking more than one game
+// That is done by appending new GameDisplay component when button is clicked (can't do it now)
 function App() {
-  const [count, setCount] = useState(0)
+	// Values of the array are only appended to array to make use of the "map" method
+	const [gamesCount, setGamesCount] = useState([0])
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	function handleClick() {
+		setGamesCount(gamesCount.concat(0))
+	}
+
+	return (
+		<>
+			{gamesCount.map((el, index) => (
+				<GameDisplay key={index}></GameDisplay>
+			))}
+			<button onClick={handleClick}>Track more games!</button>
+		</>
+	)
 }
 
 export default App
