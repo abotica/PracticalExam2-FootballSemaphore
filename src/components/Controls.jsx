@@ -1,14 +1,18 @@
-import { faCircle } from '@fortawesome/free-regular-svg-icons'
-import {
-	faMinus,
-	faPlus,
-} from '@fortawesome/free-solid-svg-icons'
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function Controls({ handleIncrement, handleDecrement }) {
+function Controls({
+	handleIncrement,
+	handleDecrement
+}) {
+	
 	return (
 		<div id="main-controls-div">
-			<button onClick={handleIncrement}>
+			<button
+				onClick={() => {
+					handleIncrement()
+				}}
+			>
 				<FontAwesomeIcon icon={faPlus} />
 			</button>
 			<button onClick={handleDecrement}>

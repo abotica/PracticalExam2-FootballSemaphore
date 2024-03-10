@@ -1,19 +1,33 @@
 import CurrentDate from './CurrentDate'
 import './GameDisplay.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Timer from './Timer'
-import Team from './Team'
+import TeamDropdown from './TeamDropdown'
 import Result from './Result'
 import Controls from './Controls'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-	faArrowRotateLeft,
-} from '@fortawesome/free-solid-svg-icons'
-import Team1 from '/src/assets/klizav-pod-128x128.png'
+import { faArrowRotateLeft } from '@fortawesome/free-solid-svg-icons'
+import { counter } from '@fortawesome/fontawesome-svg-core'
 
 function GameDisplay() {
 	const [counterOne, setCounterOne] = useState(0)
 	const [counterTwo, setCounterTwo] = useState(0)
+	const [chosenTeamOne, setTeamOne] = useState(undefined)
+	const [chosenTeamTwo, setTeamTwo] = useState(undefined)
+	const [isGameOver, setGameOver] = useState(false)
+	const [timerSeconds, setTimerSeconds] = useState(0)
+	const [timerMinutes, setTimerMinutes] = useState(0)
+	const [liveAnnounceCounter, setLiveAnnounce] = useState([])
+	const [teamStatisticsOne, setTeamStatisticsOne] = useState({
+		yellowCards: 0,
+		redCards: 0,
+		shots: 0
+	})
+	const [teamStatisticsTwo, setTeamStatisticsTwo] = useState({
+		yellowCards: 0,
+		redCards: 0,
+		shots: 0
+	})
 
 	function handleDecrementCounterOne() {
 		if (counterOne === 0) {
@@ -31,45 +45,88 @@ function GameDisplay() {
 		}
 	}
 
+	useEffect(() => {
+		if(counterOne > 0 || counterTwo > 0){
+		setLiveAnnounce(
+			liveAnnounceCounter.concat(
+				counterOne + ":" + counterTwo + " - " + timerMinutes + "'"
+			)
+		)
+			}
+	}, [counterOne, counterTwo])
+
 	return (
 		<div id="game-display-div">
 			<div className="current-date">
 				<CurrentDate />
 			</div>
 			<div className="timer">
-				<Timer />
+				{chosenTeamOne && chosenTeamTwo && (
+					<Timer
+						isGameOver={isGameOver}
+						setGameOver={setGameOver}
+						timerSeconds={timerSeconds}
+						setTimerSeconds={setTimerSeconds}
+						timerMinutes={timerMinutes}
+						setTimerMinutes={setTimerMinutes}
+					/>
+				)}
 			</div>
 			<div className="team-one">
-				<Team teamName={'KLIZAV POD'} />
+				<TeamDropdown
+					chosenTeam={chosenTeamOne}
+					setTeam={setTeamOne}
+					teamStatistics={teamStatisticsOne}
+					setTeamStatistics={setTeamStatisticsOne}
+				/>
 			</div>
 			<div className="result">
 				<Result
 					counterOne={counterOne}
 					counterTwo={counterTwo}
+					liveAnnounceCounter={liveAnnounceCounter}
 				/>
 			</div>
 			<div className="team-two">
-				<Team teamName={'KLIZAV STROP'} />
+				<TeamDropdown
+					chosenTeam={chosenTeamTwo}
+					setTeam={setTeamTwo}
+					teamStatistics={teamStatisticsTwo}
+					setTeamStatistics={setTeamStatisticsTwo}
+				/>
 			</div>
 			<div className="controls">
-				<Controls
+				{chosenTeamOne && chosenTeamTwo && <Controls
 					handleIncrement={() => setCounterOne(counterOne + 1)}
 					handleDecrement={handleDecrementCounterOne}
-				/>
-				<button
+				/>}
+				{chosenTeamOne && chosenTeamTwo && <button
 					className="reset-button"
 					onClick={() => {
 						setCounterOne(0)
 						setCounterTwo(0)
-						// RESET ALL ?????
+						setGameOver(false)
+						setTimerMinutes(0)
+						setTimerSeconds(0)
+						setLiveAnnounce([])
+						setTeamStatisticsOne({
+							yellowCards: 0,
+							redCards: 0,
+							shots: 0
+						})
+						setTeamStatisticsTwo({
+							yellowCards: 0,
+							redCards: 0,
+							shots: 0
+						})
 					}}
 				>
 					<FontAwesomeIcon icon={faArrowRotateLeft} />
-				</button>
-				<Controls
+				</button>}
+				{chosenTeamOne && chosenTeamTwo && <Controls
 					handleIncrement={() => setCounterTwo(counterTwo + 1)}
 					handleDecrement={handleDecrementCounterTwo}
-				/>
+				/>}
 			</div>
 		</div>
 	)

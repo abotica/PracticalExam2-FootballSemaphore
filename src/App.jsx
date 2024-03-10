@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import GameDisplay from './components/GameDisplay'
 
+
 // I wanted to give the user a possibility for tracking more than one game
 // That is done by appending new GameDisplay component when button is clicked (can't do it now)
 function App() {

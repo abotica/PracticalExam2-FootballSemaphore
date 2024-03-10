@@ -1,0 +1,39 @@
+.team-logo {
+    transform: scale(0.8);
+    border: 1px solid black;
+}
+
+#team-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.statistics {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    
+}
+
+.card-icons, .football {
+    font-size: xx-large;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.card-icons:hover, .football:hover {
+    transform: scale(1.2);
+    transition: all 300ms;
+}
+
+.statistic-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.statistic-container span{
+    font-size: x-large;
+}
