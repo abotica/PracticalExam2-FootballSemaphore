@@ -1,17 +1,17 @@
 import './TeamDropdown.css'
-import Team1 from '/src/assets/images (1).png'
-import Team2 from '/src/assets/images (2).jpeg'
-import Team3 from '/src/assets/images (2).png'
-import Team4 from '/src/assets/images (3).png'
-import Team5 from '/src/assets/images (4).png'
-import Team6 from '/src/assets/images (5).png'
-import Team7 from '/src/assets/images (6).png'
-import Team8 from '/src/assets/images (7).png'
-import Team9 from '/src/assets/images (8).png'
-import Team10 from '/src/assets/images (9).png'
-import Team11 from '/src/assets/images (10).png'
-import Team12 from '/src/assets/images.png'
-import Team13 from '/src/assets/klizav-pod.png'
+import Team1 from '/src/assets/NKJunak.svg'
+import Team2 from '/src/assets/LiverpoolFC.png'
+import Team3 from '/src/assets/NKMosor.png'
+import Team4 from '/src/assets/GNKDinamoZagreb.png'
+import Team5 from '/src/assets/NKSolin.png'
+import Team6 from '/src/assets/RealMadridCF.png'
+import Team7 from '/src/assets/FCBarcelona.png'
+import Team8 from '/src/assets/ManchesterUnited.png'
+import Team9 from '/src/assets/BayernMunich.svg.png'
+import Team10 from '/src/assets/Juventus.png'
+import Team11 from '/src/assets/ChelseaFC.png'
+import Team12 from '/src/assets/HajdukSplit.png'
+import Team13 from '/src/assets/KlizavPod.png'
 import { useState } from 'react'
 import TeamContent from './TeamContent'
 
@@ -20,7 +20,7 @@ function TeamDropdown({ chosenTeam, setTeam, teamStatistics, setTeamStatistics }
 		{ image: Team1, name: 'NK Junak Sinj' },
 		{ image: Team2, name: 'Liverpool' },
 		{ image: Team3, name: 'NK Mosor' },
-		{ image: Team4, name: 'NK Primorac 1929' },
+		{ image: Team4, name: 'Dinamo Zagreb' },
 		{ image: Team5, name: 'NK Solin' },
 		{ image: Team6, name: 'Real Madrid' },
 		{ image: Team7, name: 'FC Barcelona' },
@@ -28,7 +28,7 @@ function TeamDropdown({ chosenTeam, setTeam, teamStatistics, setTeamStatistics }
 		{ image: Team9, name: 'FC Bayern München' },
 		{ image: Team10, name: 'Juventus' },
 		{ image: Team11, name: 'Chelsea' },
-		{ image: Team12, name: 'NK Hajduk Split' },
+		{ image: Team12, name: 'Hajduk Split' },
 		{ image: Team13, name: 'MNK Klizav Pod' },
 	]
 
