@@ -45,14 +45,24 @@ function GameDisplay() {
 	}
 
 	useEffect(() => {
-		if (counterOne > 0 || counterTwo > 0) {
+		if (counterOne > 0) {
 			setLiveAnnounce(
 				liveAnnounceCounter.concat(
-					counterOne + ':' + counterTwo + ' - ' + timerMinutes + "'" + ' min'
+					"Goal " + chosenTeamOne + "! " + counterOne + ':' + counterTwo + ' - ' + timerMinutes + "'" + timerSeconds + '"'
 				)
 			)
 		}
-	}, [counterOne, counterTwo])
+	}, [counterOne])
+
+	useEffect(() => {
+		if (counterTwo > 0){
+			setLiveAnnounce(
+				liveAnnounceCounter.concat(
+					"Goal " + chosenTeamTwo + "! " + counterOne + ':' + counterTwo + ' - ' + timerMinutes + "'" + timerSeconds + '"'
+				)
+			)
+		}
+	}, [counterTwo])
 
 	return (
 		<div id="game-display-div">
@@ -68,6 +78,9 @@ function GameDisplay() {
 						setTimerSeconds={setTimerSeconds}
 						timerMinutes={timerMinutes}
 						setTimerMinutes={setTimerMinutes}
+						setTeamOne={setTeamOne}
+						setTeamTwo={setTeamTwo}
+
 					/>
 				)}
 			</div>
@@ -77,6 +90,7 @@ function GameDisplay() {
 					setTeam={setTeamOne}
 					teamStatistics={teamStatisticsOne}
 					setTeamStatistics={setTeamStatisticsOne}
+					isGameOver={isGameOver}
 				/>
 			</div>
 			<div className="result">
@@ -92,16 +106,17 @@ function GameDisplay() {
 					setTeam={setTeamTwo}
 					teamStatistics={teamStatisticsTwo}
 					setTeamStatistics={setTeamStatisticsTwo}
+					isGameOver={isGameOver}
 				/>
 			</div>
 			<div className="controls">
-				{chosenTeamOne && chosenTeamTwo && (
+				{!isGameOver && chosenTeamOne && chosenTeamTwo && (
 					<Controls
 						handleIncrement={() => setCounterOne(counterOne + 1)}
 						handleDecrement={handleDecrementCounterOne}
 					/>
 				)}
-				{chosenTeamOne && chosenTeamTwo && (
+				{!isGameOver && chosenTeamOne && chosenTeamTwo && (
 					<button
 						className="reset-button"
 						onClick={() => {
@@ -126,7 +141,7 @@ function GameDisplay() {
 						<FontAwesomeIcon icon={faArrowRotateLeft} />
 					</button>
 				)}
-				{chosenTeamOne && chosenTeamTwo && (
+				{!isGameOver && chosenTeamOne && chosenTeamTwo && (
 					<Controls
 						handleIncrement={() => setCounterTwo(counterTwo + 1)}
 						handleDecrement={handleDecrementCounterTwo}

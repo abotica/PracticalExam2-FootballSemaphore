@@ -14,7 +14,7 @@ import Team12 from '/src/assets/HajdukSplit.png'
 import Team13 from '/src/assets/KlizavPod.png'
 import TeamContent from '../TeamContent/TeamContent.jsx'
 
-function TeamDropdown({ chosenTeam, setTeam, teamStatistics, setTeamStatistics }) {
+function TeamDropdown({ chosenTeam, setTeam, teamStatistics, setTeamStatistics, isGameOver }) {
 	const teamImages = [
 		{ image: Team1, name: 'NK Junak Sinj' },
 		{ image: Team2, name: 'Liverpool' },
@@ -33,7 +33,7 @@ function TeamDropdown({ chosenTeam, setTeam, teamStatistics, setTeamStatistics }
 
 	return (
 		<>
-			<select name='Team Dropdown'
+			<select disabled={isGameOver} name='Team Dropdown'
 				onChange={(event) => {
 					setTeam(event.target.value)
 				}}
@@ -50,6 +50,7 @@ function TeamDropdown({ chosenTeam, setTeam, teamStatistics, setTeamStatistics }
 					chosenTeam={chosenTeam}
 					teamStatistics={teamStatistics}
 					setTeamStatistics={setTeamStatistics}
+					isGameOver={isGameOver}
 				></TeamContent>
 			)}
 		</>

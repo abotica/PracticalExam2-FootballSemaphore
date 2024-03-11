@@ -13,13 +13,11 @@
     width: 170px;
 }
 
-.timer-controls button {
-    font-size: 16px;
-}
 
 .button-text {
-    font-size: 20px;
+    font-size: 1.5em;
     font-weight: normal;
+    font-family: monospace;
 }
 
 .timer-controls button {
@@ -38,4 +36,7 @@
 
 .match-ended-span {
     width: max-content;
+    font-family: monospace;
+    font-weight: 800;
+    text-decoration: underline;
 }

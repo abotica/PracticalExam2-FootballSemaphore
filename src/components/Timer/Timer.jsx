@@ -32,7 +32,7 @@ function Timer({
 		}
 	}, [timerSeconds])
 
-	console.log(timerSeconds, timerMinutes)
+
 	return (
 		<div className="timer-container">
 			{isGameOver || timerMinutes + ' : ' + timerSeconds}

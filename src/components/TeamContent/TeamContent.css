@@ -14,7 +14,7 @@
 .card-icons, .football {
     font-size: xx-large;
     cursor: pointer;
-    margin: 10px 0;
+    margin: 0;
 }
 
 .card-icons:hover, .football:hover {
@@ -27,9 +27,26 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin: 10px 0;
 }
 
 .statistic-container span{
     font-size: xx-large;
     font-family: monospace;
 }
+
+.statistic-container button{
+    width: max-content;
+    height: max-content;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: inherit;
+    cursor: default;
+}
+
+button:disabled .football:hover, button:disabled .card-icons:hover {
+    transform: none;
+    cursor: default;
+}
+
