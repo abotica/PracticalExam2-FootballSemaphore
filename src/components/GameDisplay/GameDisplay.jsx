@@ -1,13 +1,12 @@
-import CurrentDate from './CurrentDate'
 import './GameDisplay.css'
+import CurrentDate from '../CurrentDate/CurrentDate.jsx'
 import { useEffect, useState } from 'react'
-import Timer from './Timer'
-import TeamDropdown from './TeamDropdown'
-import Result from './Result'
-import Controls from './Controls'
+import Timer from '../Timer/Timer.jsx'
+import TeamDropdown from '../TeamDropdown/TeamDropdown.jsx'
+import Result from '../Result/Result.jsx'
+import Controls from '../Controls/Controls.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRotateLeft } from '@fortawesome/free-solid-svg-icons'
-import { counter } from '@fortawesome/fontawesome-svg-core'
 
 function GameDisplay() {
 	const [counterOne, setCounterOne] = useState(0)
@@ -21,12 +20,12 @@ function GameDisplay() {
 	const [teamStatisticsOne, setTeamStatisticsOne] = useState({
 		yellowCards: 0,
 		redCards: 0,
-		shots: 0
+		shots: 0,
 	})
 	const [teamStatisticsTwo, setTeamStatisticsTwo] = useState({
 		yellowCards: 0,
 		redCards: 0,
-		shots: 0
+		shots: 0,
 	})
 
 	function handleDecrementCounterOne() {
@@ -46,13 +45,13 @@ function GameDisplay() {
 	}
 
 	useEffect(() => {
-		if(counterOne > 0 || counterTwo > 0){
-		setLiveAnnounce(
-			liveAnnounceCounter.concat(
-				counterOne + ":" + counterTwo + " - " + timerMinutes + "'"
+		if (counterOne > 0 || counterTwo > 0) {
+			setLiveAnnounce(
+				liveAnnounceCounter.concat(
+					counterOne + ':' + counterTwo + ' - ' + timerMinutes + "'" + ' min'
+				)
 			)
-		)
-			}
+		}
 	}, [counterOne, counterTwo])
 
 	return (
@@ -96,37 +95,43 @@ function GameDisplay() {
 				/>
 			</div>
 			<div className="controls">
-				{chosenTeamOne && chosenTeamTwo && <Controls
-					handleIncrement={() => setCounterOne(counterOne + 1)}
-					handleDecrement={handleDecrementCounterOne}
-				/>}
-				{chosenTeamOne && chosenTeamTwo && <button
-					className="reset-button"
-					onClick={() => {
-						setCounterOne(0)
-						setCounterTwo(0)
-						setGameOver(false)
-						setTimerMinutes(0)
-						setTimerSeconds(0)
-						setLiveAnnounce([])
-						setTeamStatisticsOne({
-							yellowCards: 0,
-							redCards: 0,
-							shots: 0
-						})
-						setTeamStatisticsTwo({
-							yellowCards: 0,
-							redCards: 0,
-							shots: 0
-						})
-					}}
-				>
-					<FontAwesomeIcon icon={faArrowRotateLeft} />
-				</button>}
-				{chosenTeamOne && chosenTeamTwo && <Controls
-					handleIncrement={() => setCounterTwo(counterTwo + 1)}
-					handleDecrement={handleDecrementCounterTwo}
-				/>}
+				{chosenTeamOne && chosenTeamTwo && (
+					<Controls
+						handleIncrement={() => setCounterOne(counterOne + 1)}
+						handleDecrement={handleDecrementCounterOne}
+					/>
+				)}
+				{chosenTeamOne && chosenTeamTwo && (
+					<button
+						className="reset-button"
+						onClick={() => {
+							setCounterOne(0)
+							setCounterTwo(0)
+							setGameOver(false)
+							setTimerMinutes(0)
+							setTimerSeconds(0)
+							setLiveAnnounce([])
+							setTeamStatisticsOne({
+								yellowCards: 0,
+								redCards: 0,
+								shots: 0,
+							})
+							setTeamStatisticsTwo({
+								yellowCards: 0,
+								redCards: 0,
+								shots: 0,
+							})
+						}}
+					>
+						<FontAwesomeIcon icon={faArrowRotateLeft} />
+					</button>
+				)}
+				{chosenTeamOne && chosenTeamTwo && (
+					<Controls
+						handleIncrement={() => setCounterTwo(counterTwo + 1)}
+						handleDecrement={handleDecrementCounterTwo}
+					/>
+				)}
 			</div>
 		</div>
 	)

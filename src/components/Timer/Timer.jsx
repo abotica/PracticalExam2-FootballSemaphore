@@ -1,6 +1,7 @@
+import './Timer.css'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 function Timer({
 	isGameOver,
@@ -35,7 +36,7 @@ function Timer({
 	return (
 		<div className="timer-container">
 			{isGameOver || timerMinutes + ' : ' + timerSeconds}
-			{isGameOver && 'This match has ended!'}
+			{isGameOver && <span className='match-ended-span'>This match has ended!</span>}
 			{isGameOver || (
 				<div className="timer-controls">
 					<button onClick={handleClickMinutes}>

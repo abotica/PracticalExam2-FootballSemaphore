@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import GameDisplay from './components/GameDisplay'
+import GameDisplay from './components/GameDisplay/GameDisplay.jsx'
 
 
 // I wanted to give the user a possibility for tracking more than one game
@@ -18,7 +18,7 @@ function App() {
 			{gamesCount.map((el, index) => (
 				<GameDisplay key={index}></GameDisplay>
 			))}
-			<button onClick={handleClick}>Track more games!</button>
+			<button className="add-games-button" onClick={handleClick}>Track more games!</button>
 		</>
 	)
 }

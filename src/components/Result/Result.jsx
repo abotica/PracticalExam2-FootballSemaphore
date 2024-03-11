@@ -1,8 +1,9 @@
+import './Result.css'
 function Result({ counterOne, counterTwo, liveAnnounceCounter }) {
 	
 	return (
 		<>
-			<div>{counterOne + ' : ' + counterTwo}</div>
+			<div id='result-counter'>{counterOne + ':' + counterTwo}</div>
 			<div className="result-announce">
 				{liveAnnounceCounter.map((announcement, index) => (
 					<p

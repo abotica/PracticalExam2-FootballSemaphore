@@ -12,8 +12,7 @@ import Team10 from '/src/assets/Juventus.png'
 import Team11 from '/src/assets/ChelseaFC.png'
 import Team12 from '/src/assets/HajdukSplit.png'
 import Team13 from '/src/assets/KlizavPod.png'
-import { useState } from 'react'
-import TeamContent from './TeamContent'
+import TeamContent from '../TeamContent/TeamContent.jsx'
 
 function TeamDropdown({ chosenTeam, setTeam, teamStatistics, setTeamStatistics }) {
 	const teamImages = [
@@ -34,7 +33,7 @@ function TeamDropdown({ chosenTeam, setTeam, teamStatistics, setTeamStatistics }
 
 	return (
 		<>
-			<select
+			<select name='Team Dropdown'
 				onChange={(event) => {
 					setTeam(event.target.value)
 				}}

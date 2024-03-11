@@ -1,0 +1,41 @@
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 170px;
+}
+
+.timer-controls button {
+    font-size: 16px;
+}
+
+.button-text {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.timer-controls button {
+    border: 0.1mm rgb(214, 209, 209) solid;
+    cursor: pointer;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0px 3px 0px #D0951A;
+}
+
+.timer-controls button:hover{
+    box-shadow: 0px 2px 0px #D0951A;
+    transition: all 400ms;
+}
+
+
+.match-ended-span {
+    width: max-content;
+}

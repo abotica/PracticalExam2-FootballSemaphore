@@ -1,9 +1,5 @@
-* {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 #game-display-div {
-    border: 1px solid black;
+    border: 0.1mm rgb(214, 209, 209) solid;
     border-radius: 25px;
     width: 70vw;
     height: 60vh;
@@ -11,6 +7,9 @@
     display: grid;
     grid-template-rows: 1fr 1fr 3fr 2fr;
     grid-template-columns: 1fr 1fr 1fr;
+    background-color: white;
+    box-shadow: 0px 5px 0px #D0951A;
+    
 }
 
 .current-date {
@@ -19,6 +18,9 @@
     font-size: x-large;
     justify-self: center;
     align-self: flex-end;
+    font-family: monospace;
+    font-style: italic;
+    color: gray;
 }
 
 .timer {
@@ -27,6 +29,19 @@
     font-size: xxx-large;
     justify-self: center;
     align-self: flex-start;
+
+}
+
+.result {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    font-size: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    max-height: 375px;
 
 }
 
@@ -40,16 +55,6 @@
     grid-column: 3 / 4;
 }
 
-.result {
-    grid-row: 3 / 4;
-    grid-column: 2 / 3;
-    font-size: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-height: 200px;
-
-}
 
 .controls {
     grid-area: 4 / 5;
@@ -59,7 +64,6 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    
 
 }
 
@@ -71,10 +75,16 @@
     justify-content: center;
     align-items: center;
     margin: 0 5px;
+    border: 0.1mm rgb(214, 209, 209) solid;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0px 3px 0px #D0951A;
+    cursor: pointer;
 }
 
-.controls #main-controls-div {
-    display: flex;
+.controls button:hover {
+    box-shadow: 0px 2px 0px #D0951A;
+    transition: all 400ms;
 }
 
 .team-one,
@@ -110,44 +120,4 @@
 
 .controls .reset-button {
     font-size: 30px;
-}
-
-.timer-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.timer-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.timer-controls button {
-    font-size: 16px;
-}
-
-.button-text {
-    font-size: 20px;
-    font-weight: normal;
-}
-
-.result-announce {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-
-}
-
-.announcement {
-    font-size: 16px;
-    margin: 1px 0;
-    -webkit-margin-collapse: collapse;
 }
