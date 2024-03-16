@@ -1,4 +1,6 @@
 import './Result.css'
+
+//This component handles result and announcements, announcements are then mapped similarly to mapping of GameDisplay components
 function Result({ counterOne, counterTwo, liveAnnounceCounter }) {
 	
 	return (

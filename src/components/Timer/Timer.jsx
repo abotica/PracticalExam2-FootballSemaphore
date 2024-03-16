@@ -3,6 +3,9 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect } from 'react'
 
+// This components handles timer and timer buttons
+// I made two timer buttons, one that adds 1 minute per click and another that adds 10 seconds per click (for faster use)
+// Also I made use of "or" condition similarly to "and" condition just for the purpose of showing the first true value and not first false value
 function Timer({
 	isGameOver,
 	setGameOver,
@@ -19,12 +22,13 @@ function Timer({
 		setTimerMinutes(timerMinutes + 1)
 	}
 
+	// Game will be set to over as soon as timer hits 90 minutes
 	useEffect(() => {
 		if (timerMinutes === 90) {
 			setGameOver(true)
 		}
 	}, [timerMinutes])
-
+	// One minute will be added to timer as soon as timer hits 60 seconds, then seconds are reset to 0 again to mimick the real timer
 	useEffect(() => {
 		if (timerSeconds === 60) {
 			setTimerSeconds(0)

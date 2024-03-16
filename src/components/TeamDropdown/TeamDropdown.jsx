@@ -14,6 +14,11 @@ import Team12 from '/src/assets/HajdukSplit.png'
 import Team13 from '/src/assets/KlizavPod.png'
 import TeamContent from '../TeamContent/TeamContent.jsx'
 
+
+// This component holds logos of some famous football clubs :)
+// Those logos are imported then saved to the "teamImages" array
+// Based on chosen option from dropdown menu logo of that team will appear with content (red card, yellow card, shots) for that team
+// User can choose the same team because that team can have training match with team members
 function TeamDropdown({ chosenTeam, setTeam, teamStatistics, setTeamStatistics, isGameOver }) {
 	const teamImages = [
 		{ image: Team1, name: 'NK Junak Sinj' },

@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquare } from '@fortawesome/free-solid-svg-icons'
 import { faFutbol } from '@fortawesome/free-regular-svg-icons'
 
+// Logos for team content are added
+// Statistics can be changed by clicking on the logo/icon
+// I just implemented incrementing statistics but not decrementing, let's just say that statistics in this case can not be a subject of discussion (no VAR technolgy :))
 function TeamContent({
 	teamImages,
 	chosenTeam,

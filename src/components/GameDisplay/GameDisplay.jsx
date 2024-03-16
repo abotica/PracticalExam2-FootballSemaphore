@@ -8,7 +8,17 @@ import Controls from '../Controls/Controls.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRotateLeft } from '@fortawesome/free-solid-svg-icons'
 
+// I decided to make this component the one which will make use of "lifting the state up" principle
+// The idea was that GameDisplay component can be rendered multiple times and each GameDisplay can then have its own independent logic
+
 function GameDisplay() {
+	// Explanation for the states: 
+	// "counter" states are used to handle result for team one and team two respectively 
+	// "chosenTeam" states remember which team has been chosen from the dropdown, that is also currently displayed team (for team one and team two respectively) 
+	// "isGameOver" state will change state to true if timer counts up to 90 minutes
+	// "timerSeconds" and "timerMinutes" change state upon pressing timer buttons in "Timer.jsx" file, their state has been lifted up because the states need to be used for display and also reset button
+	// "liveAnounceCounter" is an array of strings which will be displayed as an announcement on the display when some team scores the goal
+	// "teamStatistics" states are objects which handle yellow cards, red cards and shots for each team respectively
 	const [counterOne, setCounterOne] = useState(0)
 	const [counterTwo, setCounterTwo] = useState(0)
 	const [chosenTeamOne, setTeamOne] = useState(undefined)
@@ -43,8 +53,10 @@ function GameDisplay() {
 			setCounterTwo(counterTwo - 1)
 		}
 	}
-
+	
+	// useEffect hooks are used so that as soon as counterOne or counterTwo states are changed we can render announcement on the screen, e.g., when we increment score we will display a new result
 	useEffect(() => {
+		// we want to render new announcement only when result is greater than 0
 		if (counterOne > 0) {
 			setLiveAnnounce(
 				liveAnnounceCounter.concat(
@@ -64,6 +76,8 @@ function GameDisplay() {
 		}
 	}, [counterTwo])
 
+	// In the code below I made use of conditional rendering, components can now appear and reapear based on the useState hooks states
+	// One example is that buttons won't appear unless both teams are chosen
 	return (
 		<div id="game-display-div">
 			<div className="current-date">

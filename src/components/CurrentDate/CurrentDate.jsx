@@ -1,3 +1,4 @@
+// Displaying current date
 function CurrentDate() {
 	const currentDate = new Date()
 	const currentDay = currentDate.getDate().toString()
