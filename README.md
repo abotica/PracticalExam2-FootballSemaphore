@@ -1,3 +1,4 @@
+# Football Semaphore
 ## Introduction
 
 Football Semaphore is a React application designed to track football games. It includes predefined teams, their pictures, and other relevant information.
